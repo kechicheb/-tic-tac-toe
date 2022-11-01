@@ -18,6 +18,35 @@ export default function calcWinner(squares) {
   }
   return null;
 }
-export function calcBestMove(squares, player) {
-  // const sortedLines = lines.sort((a, b) => {a -  b});
+export  function calcBestMove(squares, player) {
+  const getArrDuplicatedCount = (arr) => {
+    let count = 0;
+    arr.forEach((i) => {
+      if (squares[i] === player) {
+        count += 1;
+      }
+    });
+    return count;
+  };
+
+  const sortedLines = lines.sort((a, b) => {
+    let acount = getArrDuplicatedCount(a);
+    let bcount = getArrDuplicatedCount(b);
+    return bcount - acount;
+  });
+
+  for (let i = 0; i < sortedLines.length; i++) {
+    let val = sortedLines[i].find((el) => {
+      if (squares[el] === "") {
+        return el + "";
+      }
+      return null;
+    });
+
+    if (!val) {
+      continue;
+    }
+    return +val;
+  }
+  return null;
 }
