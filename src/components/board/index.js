@@ -19,6 +19,10 @@ export default function Board() {
       }
     }
   };
+  const resetGame = () => {
+    dispatch(showModal());
+    dispatch(setMode("start"));
+  };
   return (
     <>
       {" "}
@@ -36,7 +40,10 @@ export default function Board() {
             )}{" "}
             TURN
           </div>
-          <button className="btn btn-sm board_restart">
+          <button
+            className="btn btn-sm board_restart"
+            onClick={() => resetGame()}
+          >
             <svg
               aria-hidden="true"
               focusable="false"

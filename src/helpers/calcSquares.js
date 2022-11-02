@@ -18,7 +18,7 @@ export default function calcWinner(squares) {
   }
   return null;
 }
-export  function calcBestMove(squares, player) {
+export function calcBestMove(squares, player) {
   const getArrDuplicatedCount = (arr) => {
     let count = 0;
     arr.forEach((i) => {
